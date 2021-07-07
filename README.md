@@ -29,15 +29,15 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 filebeats watch for data about the file system. metric beats collect machine metrics, such as uptime.
 
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+
 
 | Name     | Function | IP Address | Operating System |
 |----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.1   | Linux            |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-| TODO     |          |            |                  |
-
+| Jump Box | Gateway  |  10.0.0.1  | Linux            |
+| ELK      |elk server|  10.1.0.4  | Linux            |   
+| VM       |web server|  10.0.0.5  | Linux            |   
+| VM       |web server|  10.0.0.7  | Linux            |   
+| VM       |web server|  10.0.0.8  | Linux            |   
 ### Access Policies
 
 The machines on the internal network are not exposed to the public Internet. 
