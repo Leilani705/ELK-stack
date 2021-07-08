@@ -52,10 +52,11 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box | Yes/No              | 10.0.0.1 10.0.0.2    |
-|          |                     |                      |
-|          |                     |                      |
-
+| Jump Box |          No         | 10.0.0.1 10.0.0.2    |
+|   ELK    |          No         | 40.88.131.119:5601   |
+|   VM     |          No         |       10.0.0.4       |
+|   VM     |          No         |       10.0.0.4       |
+|   VM     |          No         |       10.0.0.4       |
 ### Elk Configuration
 
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
