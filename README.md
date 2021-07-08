@@ -52,7 +52,7 @@ A summary of the access policies in place can be found in the table below.
 
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
-| Jump Box |          No         | 10.0.0.1 10.0.0.2    |
+| Jump Box |          No         |   168.62.196.99      |
 |   ELK    |          No         | 40.88.131.119:5601   |
 |   VM     |          No         |       10.0.0.4       |
 |   VM     |          No         |       10.0.0.4       |
