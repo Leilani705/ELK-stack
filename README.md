@@ -43,7 +43,7 @@ The configuration details of each machine may be found below.
 The machines on the internal network are not exposed to the public Internet. 
 
 Only the elk machine can accept connections from the Internet. Access to this machine is only allowed from the following IP addresses:
-- 40.88.131.119:5601
+- 52.186.150.88:5601
 
 Machines within the network can only be accessed by:
 - Jump Box is the only machine that has access to my ELK VM. It's IP is 10.0.0.4
@@ -53,7 +53,7 @@ A summary of the access policies in place can be found in the table below.
 | Name     | Publicly Accessible | Allowed IP Addresses |
 |----------|---------------------|----------------------|
 | Jump Box |          No         |   168.62.196.99      |
-|   ELK    |          No         | 40.88.131.119:5601   |
+|   ELK    |          No         | 52.186.150.88:5601   |
 |   VM     |          No         |       10.0.0.4       |
 |   VM     |          No         |       10.0.0.4       |
 |   VM     |          No         |       10.0.0.4       |
@@ -62,9 +62,11 @@ A summary of the access policies in place can be found in the table below.
 Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because it automates multi-tier deployements, making it a common IT engine for automating tasks.
 
 The playbook implements the following tasks:
-- _TODO: In 3-5 bullets, explain the steps of the ELK installation play. E.g., install Docker; download image; etc._
-- ...
-- ...
+- installs and launches filebeat/metricbeat onto the ELK server
+- downloads and opens the filebeat/metricbeat
+- enables and configures the system module
+- sets up and starts the filebeat/metricbeat
+- enables service filebeat/metricbeat on boot
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
@@ -73,23 +75,25 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _TODO: List the IP addresses of the machines you are monitoring_
+- Web 1: 10.0.0.8
+- Web 2: 10.0.0.5
+- Web 3: 10.0.0.7
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+- filebeat and metricbeat on ELK Server, Web 1, Web 2, and Web 3
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- Filebeat allows us to collect data about the filesystem. An example of this would be log events from all the servers.
+- metricbeat allows us to collect machine metrics. An example of this would be uptime from the servers. 
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
 SSH into the control node and follow the steps below:
-- Copy the _____ file to _____.
-- Update the _____ file to include...
-- Run the playbook, and navigate to ____ to check that the installation worked as expected.
+- Copy the playbook file to /etc/ansible/roles.
+- Update the hosts file to include the elk server with the destination IP address
+- Run the playbook, and navigate to kibana(http://52.224.124.194:5601/app/kibana#/home) to check that the installation worked as expected.
 
-_TODO: Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-- _Which file do you update to make Ansible run the playbook on a specific machine? How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-- _Which URL do you navigate to in order to check that the ELK server is running?
+- the .yml files are the playbooks, these are copied to etc/ansible/roles.
+- you update the hosts file to run the playbook on specific machines. To specify which machines to install the ELK sever on and which to install filebeats use groups.
+-In order to check that the ELK server is running properly navigate to the kibana address. 
